@@ -10,7 +10,7 @@
       <!-- add salary button -->
       <div>
         <Button label="+ Add Salary" class="p-button-rounded" @click="openAddsalary" />
-        <Dialog header="Add Client" v-model:visible="displayAddsalary" :style="{width: '42vw'}">
+        <Dialog header="Add Staff Salary" v-model:visible="displayAddsalary" :style="{width: '42vw'}">
           <div class="grid grid-cols-2" >
             <div class="mr-3">
               <p class="py-1 mt-1">Select Staff</p>

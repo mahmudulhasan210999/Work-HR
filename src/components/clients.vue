@@ -7,6 +7,7 @@
         <p class="">Dashboard / Clients</p>
       </div>
       
+      <!-- grid & list view + add client button -->
       <div class="">
         <div class="pt-2 flex">
           <!-- grid and list view -->
@@ -17,56 +18,63 @@
           <!-- add client button -->
           <div>
             <Button label="+ Add Client" class="p-button-rounded" @click="openBasic" />
-            <Dialog header="Add Client" v-model:visible="displayBasic" :style="{width: '50vw'}">
-              <div class="grid grid-cols-2">
-                <div class="">
-                  <p>First Name</p>
-                  <InputText type="text" class="w-5/6" v-model="value1" />
-                  <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
+            <Dialog header="Add Client" v-model:visible="displayBasic" :style="{width: '42vw'}">
+              <div class="grid grid-cols-2" @submit.prevent="addClient">
+                <!-- for leftt portion -->
+                <div class="mr-3">
+                  <div class="">
+                    <p class="py-1 mt-1">First Name</p>
+                    <InputText type="text" class="w-full" v-model="firstname" />
+                    <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
+                  </div>
+                  <div>
+                    <p class="py-1 mt-1">Username</p>
+                    <InputText type="text" class="w-full" v-model="uname" />
+                    <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
+                  </div>
+                  <div>
+                    <p class="py-1 mt-1">Password</p>
+                    <InputText type="text" class="w-full" v-model="password" />
+                    <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
+                  </div>
+                  <div>
+                    <p class="py-1 mt-1">Client ID</p>
+                    <InputText type="text" class="w-full" v-model="id" />
+                    <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
+                  </div>
+                  <div>
+                    <p class="py-1 mt-1">Company Name</p>
+                    <InputText type="text" class="w-full" v-model="c_name" />
+                    <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
+                  </div>
                 </div>
-                <div>
-                  <p>Last Name</p>
-                  <InputText type="text" class="w-5/6" v-model="value1" />
-                  <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
-                </div>
-                <div>
-                  <p>Username</p>
-                  <InputText type="text" class="w-5/6" v-model="value1" />
-                  <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
-                </div>
-                <div>
-                  <p>Email</p>
-                  <InputText type="text" class="w-5/6" v-model="value1" />
-                  <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
-                </div>
-                <div>
-                  <p>Password</p>
-                  <InputText type="text" class="w-5/6" v-model="value1" />
-                  <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
-                </div>
-                <div>
-                  <p>Confirm Password</p>
-                  <InputText type="text" class="w-5/6" v-model="value1" />
-                  <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
-                </div>
-                <div>
-                  <p>Client ID</p>
-                  <InputText type="text" class="w-5/6" v-model="value1" />
-                  <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
-                </div>
-                <div>
-                  <p>Phone</p>
-                  <InputText type="text" class="w-5/6" v-model="value1" />
-                  <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
-                </div>
-                <div>
-                  <p>Company Name</p>
-                  <InputText type="text" class="w-5/6" v-model="value1" />
-                  <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
+
+                <!-- for right portion -->
+                <div class="ml-3">
+                  <div>
+                    <p class="py-1 mt-1">Last Name</p>
+                    <InputText type="text" class="w-full" v-model="lastname" />
+                    <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
+                  </div>
+                  <div>
+                    <p class="py-1 mt-1">Email</p>
+                    <InputText type="text" class="w-full" v-model="email" />
+                    <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
+                  </div>
+                  <div>
+                    <p class="py-1 mt-1">Confirm Password</p>
+                    <InputText type="text" class="w-full" v-model="password2" />
+                    <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
+                  </div>
+                  <div>
+                    <p class="py-1 mt-1">Phone</p>
+                    <InputText type="text" class="w-full" v-model="phone" />
+                    <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
+                  </div>
                 </div>
               </div>
-              <div class="mt-6">
-                <Button label="Submit" class="p-button-success w-1/4" />
+              <div class="flex justify-center mt-6">
+                <Button label="Submit" class="p-button-success w-1/4 object-center" />
               </div>
             </Dialog>
           </div>
