@@ -631,14 +631,14 @@ const store = createStore({
 
     // Payroll items Additions
     saveAdd(state, payload) {
-      state.additions.map((payroll) => {
-        if(payroll.id == payload.id) {
-          payroll.name = payload.name;
-          payroll.category = payload.category;
-          payroll.u_amount = payload.u_amount;
-          return payroll;
+      state.additions.map((addition) => {
+        if(addition.id == payload.id) {
+          addition.name = payload.name;
+          addition.category = payload.category;
+          addition.u_amount = payload.u_amount;
+          return addition;
         }
-        return payroll
+        return addition
       })
     },
     removeAddition: (state, payload) => {
@@ -648,14 +648,14 @@ const store = createStore({
 
     // Payroll items Overtime
     saveOver(state, payload) {
-      state.overtimes.map((payroll) => {
-        if(payroll.id == payload.id) {
-          payroll.name = payload.name;
-          payroll.rate_type = payload.rate_type;
-          payroll.rate = payload.rate;
-          return payroll;
+      state.overtimes.map((overtime) => {
+        if(overtime.id == payload.id) {
+          overtime.name = payload.name;
+          overtime.r_type = payload.r_type;
+          overtime.rate = payload.rate;
+          return overtime;
         }
-        return payroll
+        return overtime
       })
     },
     removeOvertime: (state, payload) => {
@@ -665,13 +665,13 @@ const store = createStore({
 
     // Payroll items Deduction
     saveDed(state, payload) {
-      state.deductions.map((payroll) => {
-        if(payroll.id == payload.id) {
-          payroll.name = payload.name;
-          payroll.u_amount = payload.u_amount;
-          return payroll;
+      state.deductions.map((deduction) => {
+        if(deduction.id == payload.id) {
+          deduction.name = payload.name;
+          deduction.u_amount = payload.u_amount;
+          return deduction;
         }
-        return payroll
+        return deduction
       })
     },
     removeDeduction: (state, payload) => {
