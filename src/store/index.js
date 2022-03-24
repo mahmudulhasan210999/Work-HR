@@ -10,6 +10,173 @@ const store = createStore({
         name: 'Mahmud1',
         img: Avatar,
         work: 'Arun Prater Torun Dol',
+        e_id: 'CLT-0001',
+        email: 'mahmud@gmail.com',
+        j_date: '30 Dec 2021',
+        salary: '$0000',
+        b_salary: '1000',
+        da: '10',
+        hra: '12',
+        conveyance: '13',
+        allowance: '14',
+        m_allowance: '15',
+        tds: '16',
+        esi: '17',
+        pf: '18',
+        leave: '19',
+        tax: '20',
+        welfare: '21',
+        payslips: [
+          {
+            basic_salary: '2000',
+            house_rent: '75',
+            conveyance: '65',
+            other_allowance: '61',
+            tax_deducted: '3',
+            provident_fund: '5',
+            esi: '8',
+            loan: '70',
+            total_earning: ""
+          }
+        ]
+      },
+      {
+        id: 2,
+        name: 'Mahmud2',
+        img: Avatar,
+        work: 'Arun Prater Torun Dol',
+        e_id: 'CLT-0002',
+        email: 'mahmud@gmail.com',
+        j_date: '30 Dec 2021',
+        salary: '$0000',
+        b_salary: '1000',
+        da: '10',
+        hra: '12',
+        conveyance: '13',
+        allowance: '14',
+        m_allowance: '15',
+        tds: '16',
+        esi: '17',
+        pf: '18',
+        leave: '19',
+        tax: '20',
+        welfare: '21',
+        payslips: [
+          {
+            basic_salary: '3000',
+            house_rent: '35',
+            conveyance: '25',
+            other_allowance: '69',
+            tax_deducted: '7',
+            provident_fund: '4',
+            esi: '5',
+            loan: '80',
+            total_earning: ""
+          }
+        ]
+      },
+      {
+        id: 3,
+        name: 'Mahmud3',
+        img: Avatar,
+        work: 'Arun Prater Torun Dol',
+        e_id: 'CLT-0003',
+        email: 'mahmud@gmail.com',
+        j_date: '30 Dec 2021',
+        salary: '$0000',
+        b_salary: '1000',
+        da: '10',
+        hra: '12',
+        conveyance: '13',
+        allowance: '14',
+        m_allowance: '15',
+        tds: '16',
+        esi: '17',
+        pf: '18',
+        leave: '19',
+        tax: '20',
+        welfare: '21',
+        payslips: [
+          {
+            basic_salary: '5000',
+            house_rent: '57',
+            conveyance: '47',
+            other_allowance: '46',
+            tax_deducted: '7',
+            provident_fund: '3',
+            esi: '9',
+            loan: '20',
+            total_earning: ""
+          }
+        ]
+      }
+    ],
+
+    additions: [
+      {
+        id: 1,
+        name: 'Leave balance amount',
+        category: 'Monthly remuneration',
+        u_amount: '500',
+      },
+      {
+        id: 2,
+        name: 'Arrears of salary',
+        category: 'Additional remuneration',
+        u_amount: '400',
+      },
+      {
+        id: 3,
+        name: 'Gratuity',
+        category: 'Monthly remuneration',
+        u_amount: '300',
+      },
+    ],
+    overtimes: [
+      {
+        id: 1,
+        name: 'Normal day',
+        r_type: 'Hourly',
+        rate: '10',
+      },
+      {
+        id: 2,
+        name: 'Public holiday',
+        r_type: 'Hourly',
+        rate: '20',
+      },
+      {
+        id: 3,
+        name: 'Rest day',
+        r_type: 'Hourly',
+        rate: '30',
+      },
+    ],
+    deductions: [
+      {
+        id: 1,
+        name: 'Absent amount',
+        u_amount: '12',
+      },
+      {
+        id: 2,
+        name: 'Advance',
+        u_amount: '13',
+      },
+      {
+        id: 3,
+        name: 'Unpaid leave',
+        u_amount: '14',
+      },
+    ],
+
+
+    employees_temp: [
+      {
+        id: 1,
+        name: 'Mahmud1',
+        img: Avatar,
+        work: 'Arun Prater Torun Dol',
         post: 'GS',
         e_id: 'CLT-0001',
         phone: '01700112233',
@@ -462,90 +629,6 @@ const store = createStore({
         ]
       },
     ],
-    
-    payrolls: [
-      {
-        id: 1,
-        name: 'Mahmud001',
-        category: 'Monthly remuneration',
-        u_amount: '500',
-        rate_type: 'Hourly',
-        rate: '100',
-      },
-      {
-        id: 2,
-        name: 'Mahmud002',
-        category: 'Additional remuneration',
-        u_amount: '400',
-        rate_type: 'Monthly',
-        rate: '200',
-      },
-      {
-        id: 3,
-        name: 'Mahmud003',
-        category: 'Monthly remuneration',
-        u_amount: '300',
-        rate_type: 'Weelly',
-        rate: '300',
-      },
-    ],
-    additions: [
-      {
-        id: 1,
-        name: 'Leave balance amount',
-        category: 'Monthly remuneration',
-        u_amount: '500',
-      },
-      {
-        id: 2,
-        name: 'Arrears of salary',
-        category: 'Additional remuneration',
-        u_amount: '400',
-      },
-      {
-        id: 3,
-        name: 'Gratuity',
-        category: 'Monthly remuneration',
-        u_amount: '300',
-      },
-    ],
-    overtimes: [
-      {
-        id: 1,
-        name: 'Normal day',
-        r_type: 'Hourly',
-        rate: '10',
-      },
-      {
-        id: 2,
-        name: 'Public holiday',
-        r_type: 'Hourly',
-        rate: '20',
-      },
-      {
-        id: 3,
-        name: 'Rest day',
-        r_type: 'Hourly',
-        rate: '30',
-      },
-    ],
-    deductions: [
-      {
-        id: 1,
-        name: 'Absent amount',
-        u_amount: '12',
-      },
-      {
-        id: 2,
-        name: 'Advance',
-        u_amount: '13',
-      },
-      {
-        id: 3,
-        name: 'Unpaid leave',
-        u_amount: '14',
-      },
-    ]
   },
 
   getters: {
@@ -556,10 +639,6 @@ const store = createStore({
       return state.employees.find(employee => employee.e_id === e_id);
     },
 
-    payrolls: state => {
-      return state.payrolls;
-    },
-
     additions: state => {
       return state.additions;
     },
@@ -568,6 +647,15 @@ const store = createStore({
     },
     deductions: state => {
       return state.deductions;
+    },
+
+    totalEarning: state => e_id => {
+      return state.employees.find(employee => {
+        if(employee.e_id === e_id) {
+          employee.payslips.total_earning = employee.payslips.basic_salary + employee.payslips.house_rent;
+          return total_earning;
+        }
+      });
     },
     
   },
@@ -611,17 +699,25 @@ const store = createStore({
   mutations: {
     // Employee Details
     saveEmployee(state, payload) {
-      state.payrolls.map((payroll) => {
-        if(payroll.id == payload.id) {
-          payroll.name = payload.name;
-          payroll.e_id = payload.e_id;
-          payroll.email = payload.email;
-          payroll.j_date = payload.j_date;
-          payroll.role = payload.role;
-          payroll.salary = payload.salary;
-          return payroll;
+      state.employees.map((employee) => {
+        if(employee.id == payload.id) {
+          employee.salary = payload.salary;
+          employee.b_salary = payload.b_salary;
+          employee.da = payload.da;
+          employee.hra = payload.hra;
+          employee.conveyance = payload.conveyance;
+          employee.allowance = payload.allowance;
+          employee.m_allowance = payload.m_allowance;
+          employee.tds = payload.tds;
+          employee.esi = payload.esi;
+          employee.pf = payload.pf;
+          employee.leave = payload.leave;
+          employee.tax = payload.tax;
+          employee.welfare = payload.welfare;
+          
+          return employee;
         }
-        return payroll
+        return employee
       })
     },
     removeEmployee: (state, payload) => {
@@ -642,7 +738,7 @@ const store = createStore({
       })
     },
     removeAddition: (state, payload) => {
-      const index = state.payrolls.indexOf(payload);
+      const index = state.additions.indexOf(payload);
       state.additions.splice(index, 1);
     },
 
@@ -659,7 +755,7 @@ const store = createStore({
       })
     },
     removeOvertime: (state, payload) => {
-      const index = state.payrolls.indexOf(payload);
+      const index = state.overtimes.indexOf(payload);
       state.overtimes.splice(index, 1);
     },
 
@@ -675,7 +771,7 @@ const store = createStore({
       })
     },
     removeDeduction: (state, payload) => {
-      const index = state.payrolls.indexOf(payload);
+      const index = state.deductions.indexOf(payload);
       state.deductions.splice(index, 1);
     }
   }

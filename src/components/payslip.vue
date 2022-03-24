@@ -67,7 +67,7 @@
             </div>
             <div class="flex justify-between p-2">
               <p>Total Earnings</p>
-              <p>$ {{  }}</p>
+              <p>$ {{ totalEarning }}</p>
             </div>
             <p></p>
           </div>
@@ -120,7 +120,11 @@ export default {
     },
     employees() { //Payslip
       return this.$store.state.employees;
-    } 
+    },
+
+    totalEarning() { 
+      return this.$store.state.totalEarning;
+    },
   },
 }
 </script>

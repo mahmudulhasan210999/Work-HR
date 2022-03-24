@@ -40,13 +40,13 @@
             <Dialog v-model:visible="additionDialog" :style="{width: '450px'}" header="Additions" :modal="true" class="p-fluid">
               <div class="field">
                 <p class="py-2 mt-2">Name</p>
-                <InputText id="name" v-model.trim="temp_payroll.name" required="true" autofocus :class="{'p-invalid': submitted && !temp_payroll.name}" />
-                <small class="p-error" v-if="submitted && !temp_payroll.name">Name is required.</small>
+                <InputText id="name" v-model.trim="temp_addition.name" required="true" autofocus :class="{'p-invalid': submitted && !temp_addition.name}" />
+                <small class="p-error" v-if="submitted && !temp_addition.name">Name is required.</small>
               </div>
 
               <div class="field">
                 <p class="py-2 mt-2">Category</p>
-                <Dropdown v-model="temp_payroll.category" class="w-full" :options="categories" placeholder="Select a Category" />
+                <Dropdown v-model="temp_addition.category" class="w-full" :options="categories" placeholder="Select a Category" />
               </div>
 
               <div class="field">
@@ -55,7 +55,7 @@
                   <div class="col-12 md:col-4">
                     <div class="p-inputgroup">
                       <span class="p-inputgroup-addon">$</span>
-                    <InputText placeholder="Price" v-model.trim="temp_payroll.u_amount" />
+                    <InputText placeholder="Price" v-model.trim="temp_addition.u_amount" />
                       <span class="p-inputgroup-addon">.00</span>
                     </div>
                   </div>
@@ -71,11 +71,11 @@
             <Dialog v-model:visible="deleteAdditionDialog" :style="{width: '450px'}" header="Confirm" :modal="true">
               <div class="confirmation-content">
                 <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" />
-                <span v-if="temp_payroll">Are you sure you want to delete <b>{{temp_payroll.name}}</b>?</span>
+                <span v-if="temp_addition">Are you sure you want to delete <b>{{temp_addition.name}}</b>?</span>
               </div>
               <template #footer>
                 <Button label="No" icon="pi pi-times" class="p-button-text" @click="deleteAdditionDialog = false"/>
-                <Button label="Yes" icon="pi pi-check" class="p-button-text" @click="deletePayroll" />
+                <Button label="Yes" icon="pi pi-check" class="p-button-text" @click="deleteAddition" />
               </template>
             </Dialog>
           </div>
@@ -147,7 +147,7 @@
               </div>
               <template #footer>
                 <Button label="No" icon="pi pi-times" class="p-button-text" @click="deleteOvertimeDialog = false"/>
-                <Button label="Yes" icon="pi pi-check" class="p-button-text" @click="deletePayrollOver" />
+                <Button label="Yes" icon="pi pi-check" class="p-button-text" @click="deleteOvertime" />
               </template>
             </Dialog>
           </div>
@@ -212,7 +212,7 @@
               </div>
               <template #footer>
                 <Button label="No" icon="pi pi-times" class="p-button-text" @click="deleteDeductionDialog = false"/>
-                <Button label="Yes" icon="pi pi-check" class="p-button-text" @click="deletePayrollDed" />
+                <Button label="Yes" icon="pi pi-check" class="p-button-text" @click="deleteDeduction" />
               </template>
             </Dialog>
           </div>
@@ -246,10 +246,6 @@ export default {
   },
 
   computed: {
-    payrolls() {
-      return this.$store.getters.payrolls;
-    },
-
     additions() {
       return this.$store.getters.additions;
     },
@@ -282,7 +278,7 @@ export default {
       additionDialog: false,
       deleteAdditionDialog: false,
       addition: {},
-      temp_payroll: {},
+      temp_addition: {},
 
       overtimeDialog: false,
       deleteOvertimeDialog: false,
@@ -298,18 +294,18 @@ export default {
   methods: {
     // For Additions tab
     openAddition() {
-      this.temp_payroll = {};
+      this.temp_addition = {};
       this.submitted = false;
       this.additionDialog = true;
     },
     editAddition(addition) {
-      this.temp_payroll = addition;
+      this.temp_addition = addition;
       this.additionDialog = true;
       this.submitted = true;
     },
     saveAddition(addition) {
-      this.temp_payroll = addition;
-      this.$store.dispatch("editAdd", this.temp_payroll);
+      this.temp_addition = addition;
+      this.$store.dispatch("editAdd", this.temp_addition);
       this.hideDialog();
     },
     hideDialog() {
@@ -317,11 +313,11 @@ export default {
       this.submitted = false;
     },
     confirmDeleteAddition(addition) {
-      this.temp_payroll = addition;
+      this.temp_addition = addition;
       this.deleteAdditionDialog = true;
     },
-    deletePayroll() {
-      this.$store.dispatch("deleteAdd", this.temp_payroll);
+    deleteAddition() {
+      this.$store.dispatch("deleteAdd", this.temp_addition);
       this.deleteAdditionDialog = false;
       this.addition = {};
     },
@@ -350,7 +346,7 @@ export default {
       this.temp_overtime = overtime;
       this.deleteOvertimeDialog = true;
     },
-    deletePayrollOver() {
+    deleteOvertime() {
       this.$store.dispatch("deleteOver", this.temp_overtime);
       this.deleteOvertimeDialog = false;
       this.overtime = {};
@@ -380,7 +376,7 @@ export default {
       this.temp_deduction = deduction;
       this.deleteDeductionDialog = true;
     },
-    deletePayrollDed() {
+    deleteDeduction() {
       this.$store.dispatch("deleteDed", this.temp_deduction);
       this.deleteDeductionDialog = false;
       this.deduction = {};

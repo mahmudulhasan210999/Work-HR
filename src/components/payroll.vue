@@ -10,103 +10,6 @@
       <!-- add salary button -->
       <div>
         <Button label="+ Add Salary" class="p-button-rounded" @click="openAddsalary" />
-        <Dialog header="Add Staff Salary" v-model:visible="displayAddsalary" :style="{width: '42vw'}">
-          <div class="grid grid-cols-2" >
-            <div class="mr-3">
-              <p class="py-1 mt-1">Select Staff</p>
-              <Dropdown v-model="selectedStaff" class="w-full" :options="staffs" placeholder="Select a Staff" />
-            </div>
-
-            <div class="ml-3">
-              <p class="py-1 mt-1">Net Salary</p>
-              <InputText type="text" class="w-full" v-model="firstname" />
-              <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
-            </div>
-
-            <!-- for earnings left portion -->
-            <div class="mr-3 mt-3">
-              <p class="font-bold text-green-500">Earnings</p>
-              <div>
-                <p class="py-1 mt-1">Basic</p>
-                <InputText type="text" class="w-full" v-model="firstname" />
-                <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
-              </div>
-              <div>
-                <p class="py-1 mt-1">DA (40%)</p>
-                <InputText type="text" class="w-full" v-model="lastname" />
-                <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
-              </div>
-              <div>
-                <p class="py-1 mt-1">HRA (15%)</p>
-                <InputText type="text" class="w-full" v-model="firstname" />
-                <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
-              </div>
-              <div>
-                <p class="py-1 mt-1">Conveyance</p>
-                <InputText type="text" class="w-full" v-model="lastname" />
-                <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
-              </div>
-              <div>
-                <p class="py-1 mt-1">Allowance</p>
-                <InputText type="text" class="w-full" v-model="firstname" />
-                <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
-              </div>
-              <div>
-                <p class="py-1 mt-1">Medical Allowance</p>
-                <InputText type="text" class="w-full" v-model="lastname" />
-                <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
-              </div>
-              <div>
-                <p class="py-1 mt-1">Others</p>
-                <InputText type="text" class="w-full" v-model="lastname" />
-                <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
-              </div>
-            </div>
-
-            <!-- for deductions right portion -->
-            <div class="ml-3 pt-3">
-              <p class="font-bold text-green-500">Deductions</p>
-              <div>
-                <p class="py-1 mt-1">TDS</p>
-                <InputText type="text" class="w-full" v-model="firstname" />
-                <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
-              </div>
-              <div>
-                <p class="py-1 mt-1">ESI</p>
-                <InputText type="text" class="w-full" v-model="lastname" />
-                <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
-              </div>
-              <div>
-                <p class="py-1 mt-1">PF</p>
-                <InputText type="text" class="w-full" v-model="firstname" />
-                <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
-              </div>
-              <div>
-                <p class="py-1 mt-1">Leave</p>
-                <InputText type="text" class="w-full" v-model="lastname" />
-                <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
-              </div>
-              <div class="">
-                <p class="py-1 mt-1">Prof. Tax</p>
-                <InputText type="text" class="w-full" v-model="firstname" />
-                <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
-              </div>
-              <div>
-                <p class="py-1 mt-1">Labour Welfare</p>
-                <InputText type="text" class="w-full" v-model="lastname" />
-                <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
-              </div>
-              <div>
-                <p class="py-1 mt-1">Others</p>
-                <InputText type="text" class="w-full" v-model="lastname" />
-                <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
-              </div>
-            </div> 
-          </div>
-          <div class="flex justify-center mt-6">
-            <Button label="Submit" class="p-button-success w-1/4" />
-          </div>
-        </Dialog>
       </div>
     </div>
 
@@ -188,40 +91,110 @@
       </DataTable>
     </div>
 
-    <Dialog v-model:visible="employeeDialog" :style="{width: '450px'}" header="Employee Details" :modal="true" class="p-fluid">
-      <div class="field">
-        <label for="name">Name</label>
-        <InputText id="name" v-model.trim="employee.name" required="true" autofocus :class="{'p-invalid': submitted && !employee.name}" />
-        <small class="p-error" v-if="submitted && !employee.name">Name is required.</small>
-      </div>
+    <Dialog v-model:visible="employeeDialog" :style="{width: '38vw'}" header="Employee Details" :modal="true" class="p-fluid">
+      <div class="grid grid-cols-2" >
+        <div class="mr-3">
+          <p class="py-1 mt-1">Select Staff</p>
+          <Dropdown v-model="selectedStaff" class="w-full" :options="staffs" placeholder="Select a Staff" />
+        </div>
 
-      <div class="field">
-        <label for="e_id">Employee ID</label>
-        <InputText id="name" v-model.trim="employee.e_id" required="true" autofocus :class="{'p-invalid': submitted && !employee.e_id}" />
-        <small class="p-error" v-if="submitted && !employee.e_id">ID is required.</small>
-      </div>
+        <div class="ml-3">
+          <p class="py-1 mt-1">Net Salary</p>
+          <InputText id="name" v-model.trim="temp_employee.salary" required="true" autofocus :class="{'p-invalid': submitted && !temp_employee.salary}" />
+          <small class="p-error" v-if="submitted && !temp_employee.salary">Name is required.</small>
+        </div>
 
-      <div class="field">
-        <label for="email">Email</label>
-        <InputText id="email" v-model.trim="employee.email" required="true" autofocus :class="{'p-invalid': submitted && !employee.email}" />
-        <small class="p-error" v-if="submitted && !employee.email">Email is required.</small>
-      </div>
+        <!-- for earnings left portion -->
+        <div class="mr-3 pt-3">
+          <p class="font-bold text-green-500">Earnings</p>
+          <div class="mr-3 mt-3">
+            <p class="py-1 mt-1">Basic</p>
+            <InputText id="name" v-model.trim="temp_employee.b_salary" required="true" autofocus :class="{'p-invalid': submitted && !temp_employee.b_salary}" />
+            <small class="p-error" v-if="submitted && !temp_employee.b_salary">Name is required.</small>
+          </div>
 
-      <div class="field">
-        <label for="j_date">Join Date</label>
-        <InputText id="j_date" v-model.trim="employee.j_date" required="true" autofocus :class="{'p-invalid': submitted && !employee.email}" />
-        <small class="p-error" v-if="submitted && !employee.email">Email is required.</small>
-      </div>
+          <div class="mr-3 mt-3">
+            <p class="py-1 mt-1">DA (40%)</p>
+            <InputText id="name" v-model.trim="temp_employee.da" required="true" autofocus :class="{'p-invalid': submitted && !temp_employee.da}" />
+            <small class="p-error" v-if="submitted && !temp_employee.da">Name is required.</small>
+          </div>
 
-      <div class="field">
-        <label for="work" class="mb-3">Role</label>
-        <Dropdown v-model="employee.work" class="w-full" :options="roles" placeholder="Select a Role" />
-      </div>
+          <div class="mr-3 mt-3">
+            <p class="py-1 mt-1">HRA (15%)</p>
+            <InputText id="name" v-model.trim="temp_employee.hra" required="true" autofocus :class="{'p-invalid': submitted && !temp_employee.hra}" />
+            <small class="p-error" v-if="submitted && !temp_employee.hra">Name is required.</small>
+          </div>
 
-      <div class="field">
-        <label for="salary">Salary</label>
-        <InputText id="email" v-model.trim="employee.salary" required="true" autofocus :class="{'p-invalid': submitted && !employee.salary}" />
-        <small class="p-error" v-if="submitted && !employee.salary">Salary number is required.</small>
+          <div class="mr-3 mt-3">
+            <p class="py-1 mt-1">Conveyance</p>
+            <InputText id="name" v-model.trim="temp_employee.conveyance" required="true" autofocus :class="{'p-invalid': submitted && !temp_employee.conveyance}" />
+            <small class="p-error" v-if="submitted && !temp_employee.conveyance">Name is required.</small>
+          </div>
+
+          <div class="mr-3 mt-3">
+            <p class="py-1 mt-1">Allowance</p>
+            <InputText id="name" v-model.trim="temp_employee.allowance" required="true" autofocus :class="{'p-invalid': submitted && !temp_employee.allowance}" />
+            <small class="p-error" v-if="submitted && !temp_employee.allowance">Name is required.</small>
+          </div>
+
+          <div class="mr-3 mt-3">
+            <p class="py-1 mt-1">Medical Allowance</p>
+            <InputText id="name" v-model.trim="temp_employee.m_allowance" required="true" autofocus :class="{'p-invalid': submitted && !temp_employee.m_allowance}" />
+            <small class="p-error" v-if="submitted && !temp_employee.m_allowance">Name is required.</small>
+          </div>
+
+          <div class="mr-3 mt-3">
+            <p class="py-1 mt-1">Others</p>
+            <InputText type="text" class="w-full" v-model="lastname" />
+            <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
+          </div>
+        </div>
+
+        <!-- for deductions right portion -->
+        <div class="ml-3 pt-3">
+          <p class="font-bold text-green-500">Deductions</p>
+          <div class="ml-3 mt-3">
+            <p class="py-1 mt-1">TDS</p>
+            <InputText id="name" v-model.trim="temp_employee.tds" required="true" autofocus :class="{'p-invalid': submitted && !temp_employee.tds}" />
+            <small class="p-error" v-if="submitted && !temp_employee.tds">Name is required.</small>
+          </div>
+
+          <div class="ml-3 mt-3">
+            <p class="py-1 mt-1">ESI</p>
+            <InputText id="name" v-model.trim="temp_employee.esi" required="true" autofocus :class="{'p-invalid': submitted && !temp_employee.esi}" />
+            <small class="p-error" v-if="submitted && !temp_employee.esi">Name is required.</small>
+          </div>
+
+          <div class="ml-3 mt-3">
+            <p class="py-1 mt-1">PF</p>
+            <InputText id="name" v-model.trim="temp_employee.pf" required="true" autofocus :class="{'p-invalid': submitted && !temp_employee.pf}" />
+            <small class="p-error" v-if="submitted && !temp_employee.pf">Name is required.</small>
+          </div>
+
+          <div class="ml-3 mt-3">
+            <p class="py-1 mt-1">Leave</p>
+            <InputText id="name" v-model.trim="temp_employee.leave" required="true" autofocus :class="{'p-invalid': submitted && !temp_employee.leave}" />
+            <small class="p-error" v-if="submitted && !temp_employee.leave">Name is required.</small>
+          </div>
+
+          <div class="ml-3 mt-3">
+            <p class="py-1 mt-1">Prof. Tax</p>
+            <InputText id="name" v-model.trim="temp_employee.tax" required="true" autofocus :class="{'p-invalid': submitted && !temp_employee.tax}" />
+            <small class="p-error" v-if="submitted && !temp_employee.tax">Name is required.</small>
+          </div>
+
+          <div class="ml-3 mt-3">
+            <p class="py-1 mt-1">Labour Welfare</p>
+            <InputText id="name" v-model.trim="temp_employee.welfare" required="true" autofocus :class="{'p-invalid': submitted && !temp_employee.welfare}" />
+            <small class="p-error" v-if="submitted && !temp_employee.welfare">Name is required.</small>
+          </div>
+
+          <div class="ml-3 mt-3">
+            <p class="py-1 mt-1">Others</p>
+            <InputText type="text" class="w-full" v-model="lastname" />
+            <span :style="{marginLeft: '.5em'}">{{text_value1}}</span>
+          </div>
+        </div>
       </div>
 
       <template #footer>
@@ -233,7 +206,7 @@
     <Dialog v-model:visible="deleteEmployeeDialog" :style="{width: '450px'}" header="Confirm" :modal="true">
       <div class="confirmation-content">
         <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" />
-        <span v-if="employee">Are you sure you want to delete <b>{{employee.name}}</b>?</span>
+        <span v-if="temp_employee">Are you sure you want to delete <b>{{temp_employee.name}}</b>?</span>
       </div>
       <template #footer>
         <Button label="No" icon="pi pi-times" class="p-button-text" @click="deleteEmployeeDialog = false"/>
@@ -297,29 +270,28 @@ export default {
       date1: null,
       date2: null,
 
+      employee: {},
       employeeDialog: false,
       deleteEmployeeDialog: false,
       submitted: false,
-      employee: {},
+      temp_employee: {},
+      
     }
   },
   methods: {
     openAddsalary() {
-      this.displayAddsalary = true;
+      this.temp_employee = {};
+      this.submitted = false;
+      this.employeeDialog = true;
     },
-    closeAddsalary() {
-      this.displayAddsalary = false;
-    },
-
-    // Edit employee
     editEmployee(employee) {
-      this.employee = employee;
+      this.temp_employee = employee;
       this.employeeDialog = true;
       this.submitted = true;
     },
     saveEmployee(employee) {
-      this.employee = employee;
-      this.$store.dispatch("editEmp", this.employee);
+      this.temp_employee = employee;
+      this.$store.dispatch("editEmp", this.temp_employee);
       this.hideDialog();
     },
     hideDialog() {
@@ -327,11 +299,11 @@ export default {
       this.submitted = false;
     },
     confirmDeleteEmployee(employee) {
-      this.employee = employee;
+      this.temp_employee = employee;
       this.deleteEmployeeDialog = true;
     },
     deleteEmployee() {
-      this.$store.dispatch("deleteEmp", this.employee);
+      this.$store.dispatch("deleteEmp", this.temp_employee);
       this.deleteEmployeeDialog = false;
       this.employee = {};
     },
