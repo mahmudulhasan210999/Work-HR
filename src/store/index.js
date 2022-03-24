@@ -488,6 +488,63 @@ const store = createStore({
         rate_type: 'Weelly',
         rate: '300',
       },
+    ],
+    additions: [
+      {
+        id: 1,
+        name: 'Leave balance amount',
+        category: 'Monthly remuneration',
+        u_amount: '500',
+      },
+      {
+        id: 2,
+        name: 'Arrears of salary',
+        category: 'Additional remuneration',
+        u_amount: '400',
+      },
+      {
+        id: 3,
+        name: 'Gratuity',
+        category: 'Monthly remuneration',
+        u_amount: '300',
+      },
+    ],
+    overtimes: [
+      {
+        id: 1,
+        name: 'Normal day',
+        r_type: 'Hourly',
+        rate: '10',
+      },
+      {
+        id: 2,
+        name: 'Public holiday',
+        r_type: 'Hourly',
+        rate: '20',
+      },
+      {
+        id: 3,
+        name: 'Rest day',
+        r_type: 'Hourly',
+        rate: '30',
+      },
+    ],
+    deductions: [
+      {
+        id: 1,
+        name: 'Absent amount',
+        u_amount: '12',
+      },
+      {
+        id: 2,
+        name: 'Advance',
+        u_amount: '13',
+      },
+      {
+        id: 3,
+        name: 'Unpaid leave',
+        u_amount: '14',
+      },
     ]
   },
 
@@ -502,6 +559,17 @@ const store = createStore({
     payrolls: state => {
       return state.payrolls;
     },
+
+    additions: state => {
+      return state.additions;
+    },
+    overtimes: state => {
+      return state.overtimes;
+    },
+    deductions: state => {
+      return state.deductions;
+    },
+    
   },
   
   actions: {
@@ -563,7 +631,7 @@ const store = createStore({
 
     // Payroll items Additions
     saveAdd(state, payload) {
-      state.payrolls.map((payroll) => {
+      state.additions.map((payroll) => {
         if(payroll.id == payload.id) {
           payroll.name = payload.name;
           payroll.category = payload.category;
@@ -575,12 +643,12 @@ const store = createStore({
     },
     removeAddition: (state, payload) => {
       const index = state.payrolls.indexOf(payload);
-      state.payrolls.splice(index, 1);
+      state.additions.splice(index, 1);
     },
 
     // Payroll items Overtime
     saveOver(state, payload) {
-      state.payrolls.map((payroll) => {
+      state.overtimes.map((payroll) => {
         if(payroll.id == payload.id) {
           payroll.name = payload.name;
           payroll.rate_type = payload.rate_type;
@@ -592,12 +660,12 @@ const store = createStore({
     },
     removeOvertime: (state, payload) => {
       const index = state.payrolls.indexOf(payload);
-      state.payrolls.splice(index, 1);
+      state.overtimes.splice(index, 1);
     },
 
     // Payroll items Deduction
     saveDed(state, payload) {
-      state.payrolls.map((payroll) => {
+      state.deductions.map((payroll) => {
         if(payroll.id == payload.id) {
           payroll.name = payload.name;
           payroll.u_amount = payload.u_amount;
@@ -608,7 +676,7 @@ const store = createStore({
     },
     removeDeduction: (state, payload) => {
       const index = state.payrolls.indexOf(payload);
-      state.payrolls.splice(index, 1);
+      state.deductions.splice(index, 1);
     }
   }
 })

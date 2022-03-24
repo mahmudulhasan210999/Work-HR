@@ -18,7 +18,7 @@
           <!-- additions table -->
           <div>
             <div class="m-8">
-              <DataTable ref="dt" :value="payrolls" v-model:selection="selectedProducts" dataKey="id" :paginator="true" :rows="10" :filters="filters" paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[5,10,25]" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products" responsiveLayout="scroll">             
+              <DataTable ref="dt" :value="additions" v-model:selection="selectedProducts" dataKey="id" :paginator="true" :rows="10" :filters="filters" paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[5,10,25]" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products" responsiveLayout="scroll">             
 
                 <Column field="name" header="Name" style="min-width:12rem"></Column>
 
@@ -90,11 +90,11 @@
           <!-- overtime table -->
           <div>
             <div class="m-8">
-              <DataTable ref="dt" :value="payrolls" v-model:selection="selectedProducts" dataKey="id" :paginator="true" :rows="10" :filters="filters" paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[5,10,25]" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products" responsiveLayout="scroll">             
+              <DataTable ref="dt" :value="overtimes" v-model:selection="selectedProducts" dataKey="id" :paginator="true" :rows="10" :filters="filters" paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[5,10,25]" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products" responsiveLayout="scroll">             
 
                 <Column field="name" header="Name" style="min-width:12rem"></Column>
 
-                <Column field="rate_type" header="Rate Type" style="min-width:8rem"></Column>
+                <Column field="r_type" header="Rate Type" style="min-width:8rem"></Column>
 
                 <Column field="rate" header="Rate" style="min-width:8rem"></Column>
 
@@ -118,7 +118,7 @@
 
               <div class="field">
                 <p class="py-2 mt-2">Rate Type</p>
-                <Dropdown v-model="temp_overtime.rate_type" class="w-full" :options="rates" placeholder="Select a Rate type" />
+                <Dropdown v-model="temp_overtime.r_type" class="w-full" :options="rates" placeholder="Select a Rate type" />
               </div>
 
               <div class="field">
@@ -162,7 +162,7 @@
           <!-- Deductions table -->
           <div>
             <div class="m-8">
-            <DataTable ref="dt" :value="payrolls" v-model:selection="selectedProducts" dataKey="id" :paginator="true" :rows="10" :filters="filters" paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[5,10,25]" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products" responsiveLayout="scroll">             
+            <DataTable ref="dt" :value="deductions" v-model:selection="selectedProducts" dataKey="id" :paginator="true" :rows="10" :filters="filters" paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[5,10,25]" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products" responsiveLayout="scroll">             
 
               <Column field="name" header="Name" style="min-width:12rem"></Column>
 
@@ -248,6 +248,16 @@ export default {
   computed: {
     payrolls() {
       return this.$store.getters.payrolls;
+    },
+
+    additions() {
+      return this.$store.getters.additions;
+    },
+    overtimes() {
+      return this.$store.getters.overtimes;
+    },
+    deductions() {
+      return this.$store.getters.deductions;
     }
   },
 
