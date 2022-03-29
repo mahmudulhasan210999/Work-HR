@@ -66,7 +66,7 @@
 
         <Column field="email" header="Email" :sortable="true" style="min-width:10rem"></Column>
 
-        <Column field="j_date" header="Join Date" :sortable="true" style="min-width:8rem"></Column>
+        <Column field="joining_date" header="Joining Date" :sortable="true" style="min-width:8rem"></Column>
 
         <Column field="role" header="Role" :sortable="true" style="min-width:8rem"></Column>
 
@@ -109,8 +109,8 @@
           <p class="font-bold text-green-500">Earnings</p>
           <div class="mr-3 mt-3">
             <p class="py-1 mt-1">Basic</p>
-            <InputText id="name" v-model.trim="temp_employee.b_salary" required="true" autofocus :class="{'p-invalid': submitted && !temp_employee.b_salary}" />
-            <small class="p-error" v-if="submitted && !temp_employee.b_salary">Name is required.</small>
+            <InputText id="name" v-model.trim="temp_employee.basic_salary" required="true" autofocus :class="{'p-invalid': submitted && !temp_employee.basic_salary}" />
+            <small class="p-error" v-if="submitted && !temp_employee.basic_salary">Name is required.</small>
           </div>
 
           <div class="mr-3 mt-3">
@@ -139,8 +139,8 @@
 
           <div class="mr-3 mt-3">
             <p class="py-1 mt-1">Medical Allowance</p>
-            <InputText id="name" v-model.trim="temp_employee.m_allowance" required="true" autofocus :class="{'p-invalid': submitted && !temp_employee.m_allowance}" />
-            <small class="p-error" v-if="submitted && !temp_employee.m_allowance">Name is required.</small>
+            <InputText id="name" v-model.trim="temp_employee.medicl_allowance" required="true" autofocus :class="{'p-invalid': submitted && !temp_employee.medicl_allowance}" />
+            <small class="p-error" v-if="submitted && !temp_employee.medicl_allowance">Name is required.</small>
           </div>
 
           <div class="mr-3 mt-3">

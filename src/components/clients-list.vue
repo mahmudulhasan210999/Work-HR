@@ -105,11 +105,11 @@
 
     <!-- Employees Table -->
     <div class="m-8">
-      <DataTable ref="dt" :value="employees" v-model:selection="selectedProducts" dataKey="id" :paginator="true" :rows="10" :filters="filters" paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[5,10,25]" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products" responsiveLayout="scroll">
+      <DataTable ref="dt" :value="clients" v-model:selection="selectedProducts" dataKey="id" :paginator="true" :rows="10" :filters="filters" paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[5,10,25]" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products" responsiveLayout="scroll">
 
         <Column field="name" header="Name" :sortable="true" style="min-width:12rem"></Column>
 
-        <Column field="e_id" header="Client ID" :sortable="true" style="min-width:8rem"></Column>
+        <Column field="c_id" header="Client ID" :sortable="true" style="min-width:8rem"></Column>
 
         <Column field="work" header="Working Place" :sortable="true" style="min-width:16rem">
             <!-- <template #body="slotProps">
@@ -146,9 +146,9 @@
       </div>
 
       <div class="field">
-        <label for="e_id">Client ID</label>
-        <InputText id="name" v-model.trim="employee.e_id" required="true" autofocus :class="{'p-invalid': submitted && !employee.e_id}" />
-        <small class="p-error" v-if="submitted && !employee.e_id">ID is required.</small>
+        <label for="c_id">Client ID</label>
+        <InputText id="name" v-model.trim="employee.c_id" required="true" autofocus :class="{'p-invalid': submitted && !employee.c_id}" />
+        <small class="p-error" v-if="submitted && !employee.c_id">ID is required.</small>
       </div>
 
       <div class="field">
@@ -232,6 +232,10 @@ export default {
   computed: {
     employees() {
       return this.$store.getters.employees;
+    },
+
+    clients() {
+      return this.$store.getters.clients;
     }
   },
   data() {
@@ -271,25 +275,6 @@ export default {
     },
     saveProduct() {
       this.submitted = true;
-
-      // if (this.employee.name.trim()) {
-      //   if (this.employee.id) {
-      //     this.employee.inventoryStatus = this.employee.inventoryStatus.value ? this.employee.inventoryStatus.value: this.employee.inventoryStatus;
-      //     this.employee[this.findIndexById(this.employee.id)] = this.employee;
-      //     this.$toast.add({severity:'success', summary: 'Successful', detail: 'Product Updated', life: 3000});
-      //   }
-      //   else {
-      //     this.employee.id = this.createId();
-      //     this.employee.code = this.createId();
-      //     this.employee.image = 'product-placeholder.svg';
-      //     this.employee.inventoryStatus = this.product.inventoryStatus ? this.product.inventoryStatus.value : 'INSTOCK';
-      //     this.employee.push(this.product);
-      //     this.$toast.add({severity:'success', summary: 'Successful', detail: 'Product Created', life: 3000});
-      //   }
-
-      //   this.employeeDialog = false;
-      //   this.employee = {};
-      // }
     },
     
     editEmployee(employee) {

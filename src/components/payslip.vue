@@ -38,63 +38,64 @@
       </div>
 
       <div v-if="employee" class="mt-6">
-        <p class="font-bold">{{ employee.name }}</p>
-        <p>{{ employee.work }}</p>
-        <p class="text-sm">Employee ID: {{ employee.e_id }}</p>
-        <p>Joining Date: {{ employee.j_date }}</p>
-      </div>
-
-      <div v-for="(payslip,index) in employee.payslips" :key="index" class="flex mt-8">
-        <div class="w-1/2 pr-4">
-          <p class="font-bold pb-2">Earnings</p>
-
-          <div class="border divide-y">
-            <div class="flex justify-between p-2">
-              <p>Basic Salary</p>
-              <p>$ {{ payslip.basic_salary }}</p>
-            </div>
-            <div class="flex justify-between p-2">
-              <p>House Rent Allowance (H.R.A)</p>
-              <p>$ {{ payslip.house_rent }}</p>
-            </div>
-            <div class="flex justify-between p-2">
-              <p>Conveyance</p>
-              <p>$ {{ payslip.conveyance }}</p>
-            </div>
-            <div class="flex justify-between p-2">
-              <p>Other Allowance</p>
-              <p>$ {{ payslip.other_allowance }}</p>
-            </div>
-            <div class="flex justify-between p-2">
-              <p>Total Earnings</p>
-              <p>$ {{ totalEarning }}</p>
-            </div>
-            <p></p>
-          </div>
+        <div>
+          <p class="font-bold">{{ employee.name }}</p>
+          <p>{{ employee.work }}</p>
+          <p class="text-sm">Employee ID: {{ employee.e_id }}</p>
+          <p>Joining Date: {{ employee.j_date }}</p>
         </div>
-        <div class="w-1/2 pl-4">
-          <p class="font-bold pb-2">Deductions</p>
 
-          <div class="border divide-y">
-            <div class="flex justify-between p-2">
-              <p>Tax Deducted at Source (T.D.S.)</p>
-              <p>$ {{ payslip.tax_deducted }}</p>
+        <div class="flex mt-8">
+          <div class="w-1/2 pr-4">
+            <p class="font-bold pb-2">Earnings</p>
+
+            <div class="border divide-y">
+              <div class="flex justify-between p-2">
+                <p>Basic Salary</p>
+                <p>$ {{ employee.basic_salary }}</p>
+              </div>
+              <div class="flex justify-between p-2">
+                <p>House Rent Allowance (H.R.A)</p>
+                <p>$ {{ employee.house_rent }}</p>
+              </div>
+              <div class="flex justify-between p-2">
+                <p>Conveyance</p>
+                <p>$ {{ employee.conveyance }}</p>
+              </div>
+              <div class="flex justify-between p-2">
+                <p>Other Allowance</p>
+                <p>$ {{ employee.other_allowance }}</p>
+              </div>
+              <div class="flex justify-between p-2">
+                <p>Total Earnings</p>
+                <p>$ {{ totalEarning }}</p>
+              </div>
             </div>
-            <div class="flex justify-between p-2">
-              <p>Provident Fund</p>
-              <p>$ {{ payslip.provident_fund }}</p>
-            </div>
-            <div class="flex justify-between p-2">
-              <p>ESI</p>
-              <p>$ {{ payslip.esi }}</p>
-            </div>
-            <div class="flex justify-between p-2">
-              <p>Loan</p>
-              <p>$ {{ payslip.loan }}</p>
-            </div>
-            <div class="flex justify-between p-2">
-              <p>Total Deductions</p>
-              <p>$ {{  }}</p>
+          </div>
+          <div class="w-1/2 pl-4">
+            <p class="font-bold pb-2">Deductions</p>
+
+            <div class="border divide-y">
+              <div class="flex justify-between p-2">
+                <p>Tax Deducted at Source (T.D.S.)</p>
+                <p>$ {{ employee.tax_deducted }}</p>
+              </div>
+              <div class="flex justify-between p-2">
+                <p>Provident Fund</p>
+                <p>$ {{ employee.provident_fund }}</p>
+              </div>
+              <div class="flex justify-between p-2">
+                <p>ESI</p>
+                <p>$ {{ employee.esi }}</p>
+              </div>
+              <div class="flex justify-between p-2">
+                <p>Loan</p>
+                <p>$ {{ employee.loan }}</p>
+              </div>
+              <div class="flex justify-between p-2">
+                <p>Total Deductions</p>
+                <p>$ {{  }}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -117,9 +118,6 @@ export default {
   computed: {
     employee() {
       return this.$store.getters.employee(this.$route.params.id);
-    },
-    employees() { //Payslip
-      return this.$store.state.employees;
     },
 
     totalEarning() { 

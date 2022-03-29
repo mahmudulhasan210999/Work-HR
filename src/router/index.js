@@ -7,7 +7,8 @@ import Clients1 from '../views/Clients-list.vue';
 import Payroll from '../components/payroll.vue';
 import Payslip from '../components/payslip.vue';
 
-import PayrollItems from '../views/Payroll-items.vue'
+import PayrollItems from '../views/Payroll-items.vue';
+import Performance from '../components/performance.vue';
 
 const routes = [
   {
@@ -41,6 +42,12 @@ const routes = [
     path: '/payroll-items',
     name: 'payroll-items',
     component: PayrollItems
+  },
+
+  {
+    path: '/performance',
+    name: 'performance',
+    component: Performance
   },
 ]
 

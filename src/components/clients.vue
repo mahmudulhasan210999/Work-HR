@@ -103,29 +103,29 @@
       </div>
     </div>
 
-    <!-- Employee loop -->
+    <!-- Clients loop -->
     <div class="m-6">
       <div class="grid grid-cols-4">
-        <div class="flex flex-col items-center m-2 border-2" v-for="employee in employees" :key="employee">
+        <div class="flex flex-col items-center m-2 border-2" v-for="(client, index) in clients" :key="index">
           
           <div class="flex ml-80 mt-3">
             <div class=""><Button icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" @click="editEmployee(slotProps.data)" /></div>
             <div class="ml-2"><Button icon="pi pi-trash" class="p-button-rounded p-button-warning" @click="confirmDeleteEmployee(slotProps.data)" /></div>
           </div>
           
-          <router-link :to="{ name: 'profile', params: { id: employee.e_id }}" class="w-20 h-20">
-          <img class="rounded-full" :src="employee.img" alt=""></router-link>
+          <router-link :to="{ name: 'profile', params: { id: client.c_id }}" class="w-20 h-20">
+          <img class="rounded-full" :src="client.img" alt=""></router-link>
 
           <div class="m-4">
-            <p class="text-xl">{{ employee.work }}</p>
-            <p class="text-xl">{{ employee.name }}</p>
-            <p class="text-xm">{{ employee.post }}</p>
+            <p class="text-xl">{{ client.work }}</p>
+            <p class="text-xl">{{ client.name }}</p>
+            <p class="text-xm">{{ client.post }}</p>
           </div>
 
           <div class="flex mb-4"> 
             <div class="mr-2"><Button label="Message" class="p-button-outlined p-button-secondary w-25 h-8"/></div>
             <div class="ml-2">
-              <router-link :to="{ name: 'profile', params: { id: employee.e_id }}">
+              <router-link :to="{ name: 'profile', params: { id: client.c_id }}">
                 <Button label="View Profile" class="p-button-outlined p-button-secondary w-25 h-8"/>
               </router-link>
             </div>
@@ -151,12 +151,16 @@ export default {
     Dropdown
   },
   mounted() {
-    const route = useRoute();
-    console.warn("route", route.params.name);
+    // const route = useRoute();
+    // console.warn("route", route.params.name);
   },
   computed: {
     employees() {
       return this.$store.getters.employees;
+    },
+
+    clients() {
+      return this.$store.getters.clients;
     }
   },
   data() {
